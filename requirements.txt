@@ -1,0 +1,5 @@
+dotenv
+python-dotenv
+ifcopenshell
+progressbar
+jsonpickle

@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  neo4j:
+    image: neo4j:latest
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/test
+
+  app:
+    build: .
+    depends_on:
+      - neo4j
+    environment:
+      - PATH=/app
+      - IFC-PATH=/path/to/ifc
+    volumes:
+      - .:/app
+    command: python main.py
